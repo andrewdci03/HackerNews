@@ -1,0 +1,30 @@
+﻿@model IEnumerable<HackerStory>
+
+@{
+    ViewData["Title"] = "Hacker News Best Stories";
+}
+
+<h2>Hacker News Stories</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <h3>Hacker news</h3>
+                @if (@ViewData["Error"] != null)
+                {
+                    <p>An Error has occured...</p>
+                }
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var story in Model)
+        {
+            <tr>
+                <td><b><a href="@story.Url">@story.Title</a></b> by @story.By</td>
+            </tr>
+        }
+    </tbody>
+</table>
